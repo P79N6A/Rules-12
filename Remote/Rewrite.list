@@ -1,0 +1,40 @@
+hostname = api.weibo.cn,app.bilibili.com,mapi.weibo.com,mp.weixin.qq.com,news.html5.qq.com,quan.qq.com,rtbapi.douyucdn.cn,sdkapp.uve.weibo.com,wbapp.uve.weibo.com,www.zhihu.com,zhidao.baidu.com
+
+# > 腾讯系列
+https?://mp.weixin.qq.com/mp/getappmsgad url reject-img
+https?://news.html5.qq.com/api/ad/article/mix url reject-img
+https?://news.html5.qq.com/api/articles/getRecommendMergeInfo url reject-img
+https?://news.html5.qq.com/api/circles/getPostSummary url reject-img
+https?://quan.qq.com/newscomment/api/getUserHonorInfoEx url reject-img
+https?://quan.qq.com/node/api2/getFunnyHappyCard url reject-img
+
+# > 酷我音乐
+https?://(2(5[0-5]{1}|[0-4]\d{1})|[0-1]?\d{1,2})(.(2(5[0-5]{1}|[0-4]\d{1})|[0-1]?\d{1,2})){3}/AdService url reject-img
+https?://(2(5[0-5]{1}|[0-4]\d{1})|[0-1]?\d{1,2})(.(2(5[0-5]{1}|[0-4]\d{1})|[0-1]?\d{1,2})){3}/EcomResourceServer url reject-img
+https?://(2(5[0-5]{1}|[0-4]\d{1})|[0-1]?\d{1,2})(.(2(5[0-5]{1}|[0-4]\d{1})|[0-1]?\d{1,2})){3}/MobileAdServer url reject-img
+
+# > 哔哩哔哩
+https?://app.bilibili.com/x/v2/splash url reject-img
+
+# > 斗鱼直播
+https?://rtbapi.douyucdn.cn/japi/sign/app/getinfo url reject-img
+
+# > 新浪微博
+https?://sdkapp.uve.weibo.com/interface/sdk/actionad.php url reject-img
+https?://sdkapp.uve.weibo.com/interface/sdk/sdkad.php url reject-img
+https?://wbapp.uve.weibo.com/wbapplua/wbpullad.lua url reject-img
+
+// 新浪微博
+https?://(api|mapi).weibo.(cn|com) url script-response-body https://github.com/Anonymousnl/Rules/raw/master/Scripting/Weibo.js
+
+// 哔哩哔哩
+https?://app.bilibili.com url script-response-body https://github.com/Anonymousnl/Rules/raw/master/Scripting/BiliBili.js
+
+// 酷我音乐
+https?://vip1.kuwo.cn url script-response-body https://github.com/Anonymousnl/Rules/raw/master/Scripting/KWPlayer.js
+
+// 知乎社区
+https?://www.zhihu.com url request-header (\r\n)User-Agent:.+(\r\n) request-header $1User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.2 Safari/605.1.15
+
+// 百度知道
+https?://zhidao.baidu.com url request-header (\r\n)User-Agent:.+(\r\n) request-header $1User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.2 Safari/605.1.15
